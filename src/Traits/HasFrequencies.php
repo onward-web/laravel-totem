@@ -175,7 +175,7 @@ trait HasFrequencies
      */
     private function processData(): array
     {
-        $data = request()->all();
+        $data = defined('MANUAL_TASK_ADD') ? MANUAL_TASK_ADD :  request()->all();
 
         if (! request()->hasFile('tasks')) {
             return $data;
