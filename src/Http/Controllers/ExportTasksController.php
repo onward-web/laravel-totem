@@ -3,17 +3,19 @@
 namespace Studio\Totem\Http\Controllers;
 
 use Studio\Totem\Contracts\TaskInterface;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ExportTasksController extends Controller
 {
     /**
      * @var TaskInterface
      */
-    private $tasks;
+    private TaskInterface $tasks;
 
     /**
      * ExportTasksController constructor.
-     * @param TaskInterface $tasks
+     *
+     * @param  TaskInterface  $tasks
      */
     public function __construct(TaskInterface $tasks)
     {
@@ -25,9 +27,9 @@ class ExportTasksController extends Controller
     /**
      * Export all tasks to a json file.
      *
-     * @return \Symfony\Component\HttpFoundation\StreamedResponse
+     * @return StreamedResponse
      */
-    public function index()
+    public function index(): StreamedResponse
     {
         $headers = [
             'Content-Type' => 'text/json',

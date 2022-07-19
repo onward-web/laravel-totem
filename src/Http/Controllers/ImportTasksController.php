@@ -2,6 +2,7 @@
 
 namespace Studio\Totem\Http\Controllers;
 
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Studio\Totem\Contracts\TaskInterface;
 use Studio\Totem\Http\Requests\ImportRequest;
 
@@ -10,11 +11,12 @@ class ImportTasksController extends Controller
     /**
      * @var TaskInterface
      */
-    private $tasks;
+    private TaskInterface $tasks;
 
     /**
      * ImportTasksController constructor.
-     * @param TaskInterface $tasks
+     *
+     * @param  TaskInterface  $tasks
      */
     public function __construct(TaskInterface $tasks)
     {
@@ -25,8 +27,10 @@ class ImportTasksController extends Controller
 
     /**
      * Import tasks from a json file.
-     * @param \Studio\Totem\Http\Requests\ImportRequest $request
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     *
+     * @param  ImportRequest  $request
+     *
+     * @throws FileNotFoundException
      */
     public function index(ImportRequest $request)
     {

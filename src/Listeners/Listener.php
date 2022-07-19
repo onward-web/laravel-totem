@@ -11,18 +11,18 @@ class Listener implements ShouldQueue
     /**
      * @var TaskInterface.
      */
-    protected $tasks;
+    protected TaskInterface $tasks;
 
     /**
      * @var Container
      */
-    protected $app;
+    protected Container $app;
 
     /**
      * Create the event listener.
      *
-     * @param Container $app
-     * @param TaskInterface $tasks
+     * @param  Container  $app
+     * @param  TaskInterface  $tasks
      */
     public function __construct(Container $app, TaskInterface $tasks)
     {

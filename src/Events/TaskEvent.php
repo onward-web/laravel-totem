@@ -13,12 +13,12 @@ class TaskEvent extends Event
     /**
      * @var Task
      */
-    public $task;
+    public Task $task;
 
     /**
      * Constructor.
      *
-     * @param Task $task
+     * @param  Task  $task
      */
     public function __construct(Task $task)
     {
